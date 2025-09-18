@@ -1,0 +1,104 @@
+<p>In this guide, you launch an Amazon EC2 instance and install a sample Python
+  Flask app using user data. When you launch an Amazon EC2 instance, you can pass
+  user data to the instance that can be used to perform automated configuration tasks.
+  User data is usually passed in the form of shell scripts. You can pass this data in the launch
+  wizard as plain text, as a file while launching via the command line tools, or as base64-encoded text for API calls. In the subsequent sections 
+  of this guide, you test the sample Python Flask app, and finally, terminate the Amazon EC2 instance. </p>
+<p>To get started, follow the steps below.</p>
+<h3>1. Launching an Amazon EC2 instance with a user data script</h3>
+
+<p>
+If you are familiar with Amazon EC2, launch the instance by referring to the properties below. Alternatively, you may also refer to the step-by-step instructions. </p>
+<p>
+<strong>Region</strong>: Oregon (us-west-2) <br>
+<strong>Amazon Machine Image (AMI)</strong> : Amazon Linux AMI <br>
+<strong>Instance Type</strong>: t2.micro <br>
+<strong>User data script</strong>:<a
+href="https://s3-us-west-2.amazonaws.com/us-west-2-tcdev/courses/AWS-100-ADG/v1.0.0/exercises/UserDataScript.txt" download>
+Download</a> <br>
+<strong>Tag</strong>: SamplePythonFlaskApp <br>
+<strong>Security group name</strong>: example-sg <br>
+<strong>Security group rules</strong>: Allow HTTP <br>
+<strong>Key Pair</strong>: Proceed without a key pair <br>
+</p>
+<p>
+<details>
+<summary>Expand for step-by-step instructions.</summary>
+<ul>
+<li>In the AWS Console, click <strong>Services</strong>, then click <strong>EC2</strong> to open the
+  <strong>EC2 dashboard</strong>.</li>
+<li>At the top-right corner, select the <strong>US West (Oregon)</strong> region. </li>
+<li>From the EC2 dashboard, click <strong>Launch Instance</strong>.</li>
+<li>On the <strong>Choose an Amazon Machine Image (AMI)</strong> page, select <strong>Amazon Linux AMI</strong> by clicking
+  <strong>Select</strong>.
+  This AMI is free-tier eligible. <br>
+  <strong>Note</strong>: Do not select the Amazon Linux 2 AMI option.
+</li>
+<li>On the <strong>Choose an Instance Type</strong> page, you can select the hardware
+  configuration of your instance. Select <strong>t2.micro</strong>.</li>
+<li>Click <strong>Next: Configure Instance Details</strong>.</li>
+<li>On the Configure Instance Details page, leave the defaults and scroll down to the <strong>Advanced Details</strong> section and expand it.</li>
+<li>In the User data section, leave <strong>As text</strong> selected. </li>
+<li><a href="https://s3-us-west-2.amazonaws.com/us-west-2-tcdev/courses/AWS-100-ADG/v1.0.0/exercises/UserDataScript.txt" download>
+Download the user data script</a> and copy and paste the contents of the script in the text area.</li>
+<li>Click <strong>Next: Add Storage</strong>. Skip through this page and click <strong>Next: Add Tags</strong>.</li>
+<li>Click <strong>Add Tag</strong>. Tags enable you to categorize your AWS resources in different ways - for example, by purpose,
+  owner, or environment.</li>
+<li>In the Key textbox, type <strong>Name</strong></li>
+<li>In the Value textbox, type <strong>SamplePythonFlaskApp</strong></li>
+<li>Click <strong>Next: Configure Security Group</strong>. Note that the wizard gives you an option
+  to create a new security group or select an existing one. For this exercise, accept the default chosen
+  option, Create a new security group.</li>
+<li>For Security Group Name, type <strong>example-sg</strong></li>
+<li>In the security group table, <strong>delete the SSH rule</strong> by clicking the <strong>X</strong> button at the
+  end of the row.</li>
+  <li>Click <strong>Add Rule</strong>.</li>
+  <li>For <strong>Type</strong>, leave <strong>Custom TCP Rule</strong> selected.</li>
+  <li>For <strong>Port Range</strong>, type <strong>80</strong></li>
+    <li>For <strong>Source</strong>, type <strong>0.0.0.0/0</strong></li>
+<li>Click <strong>Review and Launch</strong>.</li>
+<li>On the Review Instance Launch page, review the details and click <strong>Launch</strong>.</li>
+<li>When prompted for a key pair, select <strong>Proceed without a key pair</strong>.
+<li>Select the acknowledgement check box, and then click <strong>Launch Instances</strong>.</li>
+<li>Click <strong>View Instances</strong> to return to the Instances page.</li>
+<li>On the Instances page, you can view the status of the launch. It can take a few minutes for the
+  instance to be ready so that you can connect to it. Check that your instance has passed its status checks.
+  You can view this information in the Status Checks column. <br>
+<strong>Note</strong>: It takes a few minutes for the status checks to pass. Wait until the status checks
+changes from <strong>Initializing</strong> to <strong>2/2 checks passed</strong>.
+</li>
+<li>Once the instance is ready, select the instance and write down the <strong>IPv4 Public IP</strong> found in the
+  Descriptions tab at the bottom.</li>
+</ul>
+</details>
+</p>
+
+<h3>2. Testing the sample app running on your instance</h3>
+
+<p>
+<ul>
+<li>Open a browser and type the public IP of the Amazon EC2 instance you copied earlier.</li>
+<li>You should see a sample Python app running on your Amazon EC2 instance. <br>
+</li>
+</ul>
+</p>
+
+<h3>3. Terminating the Amazon EC2 instance</h3>
+<p>
+Terminate the Amazon EC2 instance by selecting the instance in the EC2 dashboard and clicking
+<strong>Actions -> Instance State -> Terminate </strong>.
+</p>
+
+<p>
+<details>
+<summary>Expand for step-by-step instructions</summary>
+<ul>
+  <li>In the AWS Console, click <strong>Services</strong>, then click <strong>EC2</strong> to open the
+    <strong>EC2 dashboard</strong>.</li>
+<li>In the navigation pane, click <strong>Instances</strong>. In the list of instances, select the <strong>SamplePythonFlaskApp</strong> instance.</li>
+<li>Click <strong>Actions</strong>, <strong>Instance State</strong>, <strong>Terminate</strong>.</li>
+<li>Click <strong>Yes, Terminate</strong> when prompted for confirmation.</li>
+<li>Amazon EC2 shuts down and terminates your instance. After your instance is terminated, it remains visible in the console for a short while, and then the entry is deleted.</li>
+</ul>
+</details>
+</p>

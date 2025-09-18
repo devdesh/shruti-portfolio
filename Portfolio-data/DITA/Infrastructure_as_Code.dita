@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita
+  PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+    <topic id="overview">
+        <title>Overview</title>
+        <body>
+            <p>Infrastructure as Code (IaC) is a method for automating the process of creating,
+                updating, or deleting your infrastructure in the cloud. The infrastructure in the
+                cloud typically consists of servers, databases, network resources such as subnets,
+                security groups, internet gateways etc.</p>
+            <p>Let’s say you are using Amazon Web Services (AWS) for your cloud-based application.
+                The infrastructure for your application in the AWS cloud may consist of:</p>
+            <ul>
+                <li>Amazon EC2 instances</li>
+                <li>Network resources such as VPC, subnets, security groups, etc.</li>
+                <li>A database service such as Amazon Aurora</li>
+                <li>AWS Lambda to handle your business code asynchronously</li>
+                <li>Build and deployment pipelines for various environments</li>
+            </ul>
+            <p>You may have multiple environments such as test, staging and production for deploying
+                your application. Each of these environments usually consist of the same resources
+                such as Amazon EC2 instances, databases, network resources, etc., but in a
+                    <b>scaled-up</b> or a <b>scaled-down</b> version.</p>
+            <p>Provisioning, managing, and deprecating infrastructure in the cloud is a costly
+                activity in terms of human capital. Furthermore, repeat attempts to build and modify
+                environments manually can lead to errors.</p>
+            <p>Whether working from prior experience or a well-documented run-book, the tendency for
+                a human to make a mistake is a statistical probability.</p>
+            <p>Now, consider this:</p>
+            <ul>
+                <li>You have an option to automate the task of creating a complete environment.</li>
+                <li>The automation is done in such a way that you can repeat it consistently and
+                    effortlessly.</li>
+            </ul>
+            <p>AWS provides a managed service called <b>AWS CloudFormation</b> to implement
+                    <i>Infrastructure as Code</i> for your cloud infrastructure.</p>
+            <p>With AWS CloudFormation, you can define your infrastructure in the form of templates.
+                A single template may consist of a part, or the whole environment. More importantly,
+                you can use the template repeatedly to create the environment.</p>
+            <p/>
+            <p/>
+            <p/>
+            <p/>
+        </body>
+    </topic>
+    <topic id="benefits-of-infrastructure-as-code">
+        <title>Benefits of Infrastructure as Code</title>
+        <body>
+            <p>Using AWS CloudFormation templates to define your cloud infrastructure, gives you the
+                following benefits:</p>
+            <ul>
+                <li>You can version-control the templates. Templates are versioned and managed just
+                    like application source code</li>
+                <li>You can repeatedly and reliably create, turn-off, and re-create the cloud
+                    infrastructure.</li>
+                <li>You can create infrastructure as needed to test the latest version of your
+                    application.</li>
+                <li>You can save costs by creating multiple, identical environments for multiple
+                    customers.</li>
+            </ul>
+            <p/>
+            <p/>
+        </body>
+    </topic>
+    <topic id="cloudformation-template-structure">
+        <title>CloudFormation template structure</title>
+        <body>
+            <p>You can write a CloudFormation template in either <b>YAML</b> or <b>JSON</b> format.
+                The structure shown below is in the YAML format.</p>
+            <codeblock xml:space="preserve" outputclass="yaml">AWSTemplateFormatVersion: 2010-09-09
+Description: ’Describe what this will create’
+Parameters:
+  MyParameter
+    Type: String
+Mappings:
+  RegionMap:
+    ‘us-west-2’:
+      ‘ami-abc123ab’
+Conditions:
+  EnvIsProd:
+Resources:
+  myEc2Instance:
+	Properties:
+Outputs:
+  myOutput:
+    Value: myVal
+	Export:
+      Name: myExportVal</codeblock>
+            <p/>
+            <p/>
+            <p/>
+            <p/>
+            <p/>
+            <p>Below is a brief description of what each section in the YAML template means:</p>
+            <table>
+                <tgroup cols="2">
+                    <colspec colname="col1" align="left" rowsep="1"/>
+                    <colspec colname="col2" align="left" rowsep="1"/>
+                    <thead>
+                        <row>
+                            <entry>Section</entry>
+                            <entry>Description</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>Format Version</entry>
+                            <entry>AWS CloudFormation template version</entry>
+                        </row>
+                        <row>
+                            <entry>Description</entry>
+                            <entry>A text string to describe the template</entry>
+                        </row>
+                        <row>
+                            <entry>Parameters</entry>
+                            <entry>Inputs into template</entry>
+                        </row>
+                        <row>
+                            <entry>Mappings</entry>
+                            <entry>Static variables, Key-Value pairs</entry>
+                        </row>
+                        <row>
+                            <entry>Conditions</entry>
+                            <entry>Controls for creating / updating certain resources</entry>
+                        </row>
+                        <row>
+                            <entry>Resources</entry>
+                            <entry>AWS resources to create</entry>
+                        </row>
+                        <row>
+                            <entry>Outputs</entry>
+                            <entry>Values of custom resources created by template (URLs, username,
+                                etc.)</entry>
+                        </row>
+                        <row>
+                            <entry>Export</entry>
+                            <entry>Export values from the template</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <p/>
+            <p/>
+            <p/>
+        </body>
+    </topic>
+    <topic id="example">
+        <title>Example</title>
+        <body>
+            <p>The YAML template below creates an Amazon S3 bucket. The name of the bucket is
+                    <i>sample-bucket</i>. The bucket is <i>publicly accessible</i>. In the
+                    <i>Outputs</i> section of the template, you can see that the name of the bucket
+                is being referenced by using the <codeph><b>!Ref</b></codeph> keyword. You can view
+                the bucket name in AWS console under the AWS CloudFormation service.</p>
+            <codeblock xml:space="preserve" outputclass="yaml">AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: sample-bucket
+      AccessControl: PublicRead
+Outputs:
+  BucketName:
+    Value: !Ref S3Bucket
+    Description: Name of the sample Amazon S3 bucket</codeblock>
+        </body>
+    </topic>
+</dita>

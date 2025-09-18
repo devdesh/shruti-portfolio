@@ -1,0 +1,90 @@
+openapi:  '3.0.2'
+info:
+  title: "Amazon EC2 API"
+  description: "Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone."
+  version: "1.0"
+  termsOfService: "https://aws.amazon.com/terms/"
+  contact:
+    name: "Amazon EC2 API"
+    url: "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html"
+    email: "some_email@gmail.com"
+  license:
+    name: "CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)"
+    url: "https://aws.amazon.com/terms/"
+servers:
+- url: https://ec2.amazonaws.com/
+  description: Test server
+paths:
+  /DescribeAvailabilityZones:
+    get:
+      tags:
+      -  Amazon EC2 Availability Zones information
+      summary: "Describes the zones in the current Region that are enabled for your account"
+      description:  "Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone."
+      operationId:  DescribeAvailabilityZones
+      parameters:
+      -  name:  Action
+         in:  query
+         description: "DescribeAvailabilityZones"
+         schema:
+           type:  string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: DescribeAvailabilityZonesResponse
+                type: object
+                properties:
+                  requestId:
+                    type: string
+                    description: unique request id for the request
+                  availabilityZoneInfo:
+                    type:  object
+                    description: list of availability zones
+                    properties:
+                      groupName:
+                        type:  string
+                        description:  group name of the AZ
+                        example:  us-west-2
+                      optInStatus:
+                        type:  string
+                        enum: [opt-in-required, opt-in-not-required]
+                        description: opt in status of the region
+                        example:  opt-in-not-required
+                      zoneName:
+                        type:  string
+                        description:  zone name for the AZ
+                        example:  us-west-2d
+                      zoneId:
+                        type:  string
+                        description:  zone Id for the AZ
+                        example:  usw2-az4
+                      zoneState:
+                        type:  string
+                        description:  zone state for the AZ
+                        example:  available
+                      zoneType:
+                        type:  string
+                        description:  zone type for the AZ
+                        example:  availability zone
+                      regionName:
+                        type:  string
+                        description:  name of the region
+                        example:  us-west-2
+                      networkBorderGroup:
+                        type:  string
+                        description:  network border group of the region
+                        example:  us-west-2
+                      
+                           
+
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: 404 Not Found
+                type: string
+                example: Resource Not Found

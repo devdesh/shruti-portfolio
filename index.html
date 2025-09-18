@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Writing Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Technical Writing Portfolio</h1>
+            <p>DevOps • AWS • Documentation • API Development</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Documents Created</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DevOps Section -->
+        <div class="section">
+            <h2><i class="fas fa-sync-alt"></i> DevOps & CI/CD</h2>
+            <p>Comprehensive documentation covering CI/CD best practices, pipeline automation, and deployment strategies.</p>
+            
+            <h3>Continuous Integration & Delivery</h3>
+            <p>Detailed guides on automated build processes, deployment pipelines, and environment management.</p>
+            
+            <div class="files">
+                <a href="./Portfolio-data/DevOps/Devops_CI_CD.pdf" target="_blank" class="file-link pdf">
+                    <i class="fas fa-file-pdf"></i> CI/CD Guide
+                </a>
+                <a href="./Portfolio-data/Markdown/Devops_CI_CD.md" target="_blank" class="file-link md">
+                    <i class="fas fa-file-alt"></i> Markdown
+                </a>
+                <a href="./Portfolio-data/HTML/Devops_CI_CD.html" target="_blank" class="file-link html">
+                    <i class="fas fa-file-code"></i> HTML
+                </a>
+                <a href="./Portfolio-data/DITA/Devops_CI_CD.dita" target="_blank" class="file-link dita">
+                    <i class="fas fa-file-code"></i> DITA
+                </a>
+            </div>
+
+            <h3>Infrastructure as Code</h3>
+            <p>Guides on automating infrastructure provisioning and management using AWS CloudFormation.</p>
+            
+            <div class="files">
+                <a href="./Portfolio-data/DevOps/Infrastructure_as_Code.pdf" target="_blank" class="file-link pdf">
+                    <i class="fas fa-file-pdf"></i> IaC Guide
+                </a>
+                <a href="./Portfolio-data/Markdown/Infrastructure_as_Code.md" target="_blank" class="file-link md">
+                    <i class="fas fa-file-alt"></i> Markdown
+                </a>
+                <a href="./Portfolio-data/HTML/Infrastructure_as_Code.html" target="_blank" class="file-link html">
+                    <i class="fas fa-file-code"></i> HTML
+                </a>
+                <a href="./Portfolio-data/DITA/Infrastructure_as_Code.dita" target="_blank" class="file-link dita">
+                    <i class="fas fa-file-code"></i> DITA
+                </a>
+            </div>
+
+            <div class="skills">
+                <span class="skill">CI/CD Pipelines</span>
+                <span class="skill">Jenkins</span>
+                <span class="skill">Git</span>
+                <span class="skill">Docker</span>
+                <span class="skill">Kubernetes</span>
+                <span class="skill">Infrastructure as Code</span>
+                <span class="skill">Automation</span>
+                <span class="skill">Monitoring</span>
+            </div>
+        </div>
+
+        <!-- AWS Section -->
+        <div class="section">
+            <h2><i class="fas fa-cloud"></i> AWS Cloud Services</h2>
+            <p>Practical examples and templates for AWS resource provisioning and management.</p>
+            
+            <h3>CloudFormation Templates</h3>
+            <p>Sample S3 bucket creation template with best practices:</p>
+            
+            <div class="code-example">
+                <pre><code>AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: sample-bucket
+      AccessControl: PublicRead
+Outputs:
+  BucketName:
+    Value: !Ref S3Bucket
+    Description: Name of the sample Amazon S3 bucket</code></pre>
+            </div>
+            
+            <a href="./Portfolio-data/AWS CloudFormation Templates/Create-S3-Bucket.yml" target="_blank" class="download-link pastel-button soft-blue">
+                <i class="fas fa-download"></i> Download Template
+            </a>
+
+            <h3>EC2 Instance Management</h3>
+            <p>Step-by-step guides for launching and connecting to Amazon EC2 instances across different platforms.</p>
+            
+            <div class="files">
+                <a href="./Portfolio-data/How-To Guides/Connecting to an Amazon EC2 instance.md" target="_blank" class="file-link md">
+                    <i class="fas fa-file-alt"></i> Connection Guide
+                </a>
+                <a href="./Portfolio-data/How-To Guides/Launching an Amazon EC2 instance.html" target="_blank" class="file-link html">
+                    <i class="fas fa-file-code"></i> Launch Guide
+                </a>
+            </div>
+
+            <h3>API Documentation</h3>
+            <p>Comprehensive OpenAPI specifications for Amazon EC2 APIs with step-by-step implementation guides.</p>
+            
+            <div class="files">
+                <a href="./Portfolio-data/API Documentation/Step-by-Step OpenAPI Specs Yaml/openapi_step8_fulldoc.yaml" target="_blank" class="file-link yaml">
+                    <i class="fas fa-file-code"></i> Full API Spec
+                </a>
+                <a href="./Portfolio-data/API Documentation/OpenAPI Spec for Amazon EC2 API/openapi_amazon_ec2_describeavailabilityzones.yaml" target="_blank" class="file-link yaml">
+                    <i class="fas fa-file-code"></i> EC2 API
+                </a>
+                <a href="./Portfolio-data/API Documentation/Step-by-Step OpenAPI Specs Yaml/" target="_blank" class="file-link link">
+                    <i class="fas fa-folder"></i> Step-by-Step Guide
+                </a>
+            </div>
+
+            <div class="skills">
+                <span class="skill">EC2</span>
+                <span class="skill">S3</span>
+                <span class="skill">CloudFormation</span>
+                <span class="skill">VPC</span>
+                <span class="skill">Lambda</span>
+                <span class="skill">API Gateway</span>
+                <span class="skill">IAM</span>
+                <span class="skill">CloudWatch</span>
+            </div>
+        </div>
+
+        <!-- Voice Technology Section -->
+        <div class="section">
+            <h2><i class="fas fa-microphone"></i> Voice Technology</h2>
+            <p>Complete course materials covering voice interface design and implementation for Alexa skills.</p>
+            
+            <h3>Alexa Skill Development</h3>
+            <p>Comprehensive guides covering voice interface design, skill development, and best practices.</p>
+            
+            <div class="files">
+                <a href="./Portfolio-data/Alexa Content/Alexa_Course Outline.pdf" target="_blank" class="file-link pdf">
+                    <i class="fas fa-file-pdf"></i> Course Outline
+                </a>
+                <a href="./Portfolio-data/Alexa Content/Alexa_Build with Alexa.pdf" target="_blank" class="file-link pdf">
+                    <i class="fas fa-file-pdf"></i> Build with Alexa
+                </a>
+                <a href="./Portfolio-data/Alexa Content/Alexa_How Alexa works.pdf" target="_blank" class="file-link pdf">
+                    <i class="fas fa-file-pdf"></i> Voice Interface Guide
+                </a>
+                <a href="./Portfolio-data/Alexa Content/Alexa_Steps to build a skill.pdf" target="_blank" class="file-link pdf">
+                    <i class="fas fa-file-pdf"></i> Skill Development Steps
+                </a>
+            </div>
+
+            <div class="skills">
+                <span class="skill">Alexa Skills</span>
+                <span class="skill">Voice UI</span>
+                <span class="skill">AWS Lambda</span>
+                <span class="skill">Node.js</span>
+                <span class="skill">Voice Design</span>
+            </div>
+        </div>
+
+        <!-- Enterprise Documentation Section -->
+        <div class="section">
+            <h2><i class="fas fa-industry"></i> Enterprise Documentation</h2>
+            <p>Production documentation for enterprise container platforms and backup solutions.</p>
+            
+            <h3>Red Hat OpenShift</h3>
+            <p>Published documentation for enterprise container platforms and backup solutions.</p>
+            
+            <div class="files">
+                <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/backup_and_restore/oadp-application-backup-and-restore#oadp-use-cases" target="_blank" class="file-link link">
+                    <i class="fas fa-external-link-alt"></i> OADP Use Cases
+                </a>
+                <a href="https://docs.okd.io/latest/backup_and_restore/application_backup_and_restore/oadp-self-service/oadp-self-service.html#oadp-self-service-overview_oadp-self-service" target="_blank" class="file-link link">
+                    <i class="fas fa-external-link-alt"></i> Self-Service Documentation
+                </a>
+                <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/backup_and_restore/oadp-application-backup-and-restore#installing-oadp-ibm-cloud" target="_blank" class="file-link link">
+                    <i class="fas fa-external-link-alt"></i> IBM Cloud Integration
+                </a>
+            </div>
+
+            <div class="skills">
+                <span class="skill">OpenShift</span>
+                <span class="skill">Kubernetes</span>
+                <span class="skill">Container Platforms</span>
+                <span class="skill">Backup Solutions</span>
+                <span class="skill">Enterprise Documentation</span>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section contact">
+            <h2><i class="fas fa-envelope"></i> Let's Connect</h2>
+            <p>Ready to discuss your technical writing needs? I specialize in creating clear, comprehensive documentation that helps teams understand complex technical concepts and implement best practices.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Available for freelance projects</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Open to full-time opportunities</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Remote work preferred</span>
+                </div>
+            </div>
+
+            <h3>What I Bring:</h3>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>Expertise in DevOps and cloud technologies</li>
+                <li>Experience with multiple documentation formats</li>
+                <li>Strong technical communication skills</li>
+                <li>Proven track record with enterprise clients</li>
+                <li>Knowledge of modern development workflows</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
