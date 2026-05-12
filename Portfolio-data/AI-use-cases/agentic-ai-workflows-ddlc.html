@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Workflows in Document Development Lifecycle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background-color: #fafafa;
+            padding: 2rem 1rem;
+        }
+        article {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem 3.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+        header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        header h1 {
+            font-size: 2rem;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+        .byline {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        h1 {
+            font-size: 1.6rem;
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        section {
+            margin-bottom: 1.5rem;
+        }
+        ol, ul {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        li p {
+            margin-bottom: 0.25rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid #d0d0d0;
+            padding: 0.7rem 0.9rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f0f0f0;
+            font-weight: 600;
+        }
+        th p, td p {
+            margin-bottom: 0;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        strong {
+            color: #1a1a1a;
+        }
+        @media (max-width: 600px) {
+            article {
+                padding: 1.5rem 1.25rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            table {
+                font-size: 0.82rem;
+            }
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>Agentic AI Workflows in Document Development Lifecycle</h1>
+            <p class="byline">By Shruti Deshpande</p>
+        </header>
+
+        <p>Agentic AI workflows represent <strong>a paradigm shift</strong> in how we produce technical content with AI assistance. Moving beyond the limitations of using standard AI chatbots to enhance specific documentation tasks, these AI-powered workflows can use orchestrated agents, pre-defined skills, and specialized quality gates to augment all phases of the documentation development lifecycle (DDLC).</p>
+
+        <p>This overview examines how we might <strong>integrate these agent-driven workflows into the technical content pipeline</strong> and argues that a <strong>product-agnostic design</strong> is critical for building flexible, portable, and scalable systems that are free from vendor or model lock-in.</p>
+
+        <section>
+            <h1 id="what-are-agentic-ai-workflows">What are agentic AI workflows?</h1>
+
+            <p>Agentic <strong>AI workflows differ from LLM chatbots</strong> (like Gemini) or one-off AI tools used to assist in a single phase or task during the documentation development process.</p>
+
+            <p>Think of an <strong>AI chatbot</strong> as a (mostly) knowledgeable assistant. Most of the time, they're great for specific answers in a limited context, but they can often lose the thread when asked to handle broader context or multiple subjects at once.</p>
+
+            <p>An <strong>agentic workflow</strong>, on the other hand, is like having <strong>a team of focused specialists</strong> behind you, all of whom are following a pre-defined process, with tools, skills, quality gates, and memory of the project's state &mdash; all <strong>directed by you</strong> and your docs team.</p>
+
+            <p>Chatbots and agentic workflows are not competing alternatives. They just <strong>operate at different levels and with different limitations</strong>. A chatbot can augment a writer's, strategist's, or manager's thinking in the moment, while a dedicated AI reviewing tool can help with peer reviewing, say, a single file or merge request. But <strong>an agentic workflow extends beyond these limitations by augmenting a team's processes</strong> over time, end-to-end during every phase of the DDLC while simultaneously keeping track of what has happened and needs to happen over every other phase, thus ensuring consistency and traceability for all changes at all stages.</p>
+
+            <p>Most documentation teams might use both &mdash; chatbots like Gemini for quick, exploratory work and defined agentic workflows for structured, repeatable production work.</p>
+
+            <p><strong>The shift with agentic workflows</strong> for docs is from using AI as an ad-hoc helper for particular tasks to <strong>using a team of orchestrated AI agents</strong> as managed collaborators in a defined end-to-end process &mdash; with the structure, quality controls, and auditability that professional documentation work demands.</p>
+        </section>
+
+        <section>
+            <h1 id="what-is-the-documentation-development-lifecycle">What is the documentation development lifecycle?</h1>
+
+            <p>Technical documentation development typically <strong>moves through stages</strong> from initial requirements gathering to content creation and review to long-term maintenance. In a traditional manual process, each stage depends heavily on individual resource availability, informal handoffs, and manual quality checks.</p>
+
+            <ol>
+                <li><strong>Requirements gathering</strong> &mdash; Understand what changed or is changing in the product, what users need to know, and how these things map to existing or new documentation (JIRA tickets, PRs, specs, SME input).</li>
+                <li><strong>Planning</strong> &mdash; Decide what to write or update, which content types to use, how content fits existing information architecture, and what gaps exist.</li>
+                <li><strong>Writing</strong> &mdash; Produce drafts that follow templates, style expectations, and modular structure.</li>
+                <li><strong>Reviewing</strong> &mdash; Validate technical accuracy and style/editorial quality. The process is often split between technical reviews by SMEs and a style or editorial review by peers or a technical editor.</li>
+                <li><strong>Publishing</strong> &mdash; Publish changes through version control, build pipelines, and publication to a customer-facing site or via a deliverable like a PDF (or both).</li>
+                <li><strong>Maintaining</strong> &mdash; Reassess quality over time, restructure for user goals, fix drift as the product evolves, and retire obsolete content.</li>
+            </ol>
+
+            <p>Agentic workflows do not replace these stages. Instead, agents <strong>automate repeatable work</strong> inside and between each stage, <strong>surface structured outputs</strong>, and <strong>make progress trackable</strong> both for individual writers and for teams. Humans still set scope, verify accuracy, assess release readiness, approve publication, and own strategy.</p>
+        </section>
+
+        <section>
+            <h1 id="key-concepts-agents-skills-and-orchestration">Key concepts: Agents, skills, and orchestration</h1>
+        </section>
+
+        <section>
+            <h2 id="agents">Agents</h2>
+
+            <p><strong>Agents are specialized AI assistants</strong> with a defined role, a bounded set of tools (for example, for file access, search, or API calls), and instructions for how to behave when responding to human prompts.</p>
+
+            <p>In documentation workflows, you might <strong>split work across several agent roles</strong> rather than sending requests to one general-purpose agentic assistant:</p>
+
+            <ul>
+                <li>A <strong>requirements or discovery agent</strong> ingests work items, change requests, and source artifacts (source code repositories, issue trackers, pull requests, specs, design docs) and produces a structured summary of what documentation is needed.</li>
+                <li>A <strong>planning or architecture agent</strong> turns that summary into a content plan: what to create or update, how pieces relate, and what gaps remain.</li>
+                <li>A <strong>writing agent</strong> drafts or revises content according to your templates and conventions and the changes mapped out by the content plan.</li>
+                <li>A <strong>technical review agent</strong> checks whether the draft matches the product behavior, APIs, and engineering reality.</li>
+                <li>An <strong>editorial or style review agent</strong> checks language, structure, accessibility, and organizational style rules.</li>
+            </ul>
+
+            <p>The same underlying model can power each role. What changes is the system prompt you create, the tools you grant the agent permission to use, and the skills you attach to each agent.</p>
+
+            <p>Implementations will vary: some projects will use named agent files, others could possibly use a single agent with mode switches. But the pattern is consistent: narrow roles, clear handoffs, human oversight at boundaries.</p>
+
+            <p>Agents unlock their greatest potential by <strong>orchestrating and managing work</strong> across numerous writers, software features, and workstreams with minimal human intervention. This process includes crucial functions like tracking status, guaranteeing consistency across different work efforts, and offering guidance to humans on the optimal way to orchestrate multiple complex tasks and deliver the overall work on time and on quality.</p>
+        </section>
+
+        <section>
+            <h2 id="skills">Skills</h2>
+
+            <p><strong>Skills are reusable packages of knowledge and procedures</strong> that agents load and reference to complete a task. They are not the AI model itself. Instead, they contain the instructions, checklists, guidelines, and constraints you want applied consistently when the model responds to prompts. Typical categories of skills might include:</p>
+
+            <ul>
+                <li><strong>Connectors</strong> &mdash; How to read from an issue tracker, clone a repo, fetch a pull request, or pull text from an internal site.</li>
+                <li><strong>In-house style and linting</strong> &mdash; Organization-specific terminology, punctuation, structure rules, and integration with linters (for example prose, code, or style linters).</li>
+                <li><strong>Content-type rules</strong> &mdash; How procedures differ from concepts or reference topics, how modules are titled, how code examples must be formatted, standard information certain content types must include.</li>
+                <li><strong>Workflow steps</strong> &mdash; Encapsulated behavior for one stage of a pipeline (e.g., run a requirements analysis, run a review pass, open a follow-up task).</li>
+            </ul>
+
+            <p>Skills are authored as plain text or Markdown files so they stay editable and version-controlled by anyone &ndash; no coding knowledge required.</p>
+
+            <p>A <strong>mature workflow</strong> will <strong>stack multiple skills per stage</strong> so the agent can apply both universal rules and local or product/project-specific guidelines.</p>
+        </section>
+
+        <section>
+            <h2 id="orchestration">Orchestration</h2>
+
+            <p><strong>Orchestration is how you chain stages together</strong> with explicit inputs, outputs, and state. A workflow definition lists steps in order, declares what each step consumes (for example the prior step's artifact), and records progress so agent runs can resume after failure or interruption.</p>
+
+            <p>Good orchestration <strong>separates what runs when from how the model thinks</strong>:</p>
+
+            <ul>
+                <li><p>The <strong>workflow definition</strong> is usually data (YAML, JSON, or configuration files in your toolset) that lists steps, dependencies, optional branches, and conditions.</p></li>
+                <li><p>The <strong>AI application</strong> (such as Claude Code or Cursor) executes each step by invoking an agent with the right skills and context, then stores outputs and updates state (often in a small progress file).</p></li>
+                <li><p><strong>Gates and loops</strong> provide rules for when steps in the workflow need to be repeated or stopped. For example, if the technical review agent flags too many errors in a block of content, the workflow can automatically send work back to the drafting agent for another pass, up to a limit you define.</p></li>
+            </ul>
+
+            <p>Orchestration does not need to be a heavyweight engine. Teams can start with an ordered checklist executed by a human or a script, then graduate to automation as patterns stabilize.</p>
+        </section>
+
+        <section>
+            <h1 id="the-key-role-of-a-product-agnostic-agentic-design">The key role of a product-agnostic agentic design</h1>
+
+            <p>Resilient and scalable agentic workflow frameworks should <strong>prioritize maximum portability and interoperability</strong> to prevent vendor lock-in and ensure long-term viability. Their <strong>design must therefore be agnostic</strong> across evolving AI products. Specifically, the architecture must be <strong>decoupled from any single proprietary application</strong> (e.g., Claude Code) to allow for easy pivoting without costly overhauls if the proprietary tooling becomes unavailable.</p>
+
+            <p>Furthermore, the implementation itself should depend on <strong>LLM agnosticism</strong>, meaning the workflow should not be intrinsically tied to a single LLM's APIs or prompt formats. Instead, it must be capable of using <strong>standardized interfaces and formats</strong> to dynamically route requests to different LLMs (such as GPT-4, Llama, Composer, Gemini, Claude), so that the workflow uses a model appropriate to the task at hand.</p>
+
+            <p>Tool and model agnosticism <strong>future-proofs</strong> our system, enables <strong>flexibility and optimization</strong> by sourcing the best or most cost-effective model per task, and <strong>mitigates risk</strong> by reducing reliance on a single provider.</p>
+
+            <p>To ensure this product agnosticism, we must design and build workflow frameworks with the following characteristics:</p>
+
+            <ul>
+                <li><strong>Workflow definitions</strong> must <strong>use standard text-only formats</strong> like YAML. Any agentic application or runner can then easily read the code and invoke steps to be able to implement the same pipeline of steps.</li>
+                <li><strong>Agent definitions</strong> must be <strong>plain text Markdown</strong> files. These definitions describe behavior and skill bindings without locking to a single vendor API and are easily edited by anyone no matter what level of coding knowledge they have.</li>
+                <li><strong>Skills</strong> must be plain text <strong>Markdown files plus optional scripts</strong>. Domain rules should live in text and in small utilities written in an <strong>open-source scripting language</strong> like Python or Bash, rather than in a proprietary binary or vendor-specific scripting format.</li>
+                <li><strong>Orchestration patterns</strong> define how to read YAML, validate steps, run each step skill, persist JSON state, support resume and should therefore be <strong>capable of being run locally</strong> in Claude Code, Cursor, or any other AI tool. At the same time, these patterns should also be directly portable to run headless in cloud-based CI automations if needed.</li>
+            </ul>
+
+            <p>The strategic idea behind a framework's <strong>product-agnostic design</strong> is that the <strong>knowledge layer stays separate from bindings to a specific product</strong> and therefore remains portable over time.</p>
+        </section>
+    </article>
+</body>
+</html>
